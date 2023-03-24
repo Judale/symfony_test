@@ -2,6 +2,17 @@ version: '3'
 
 services:
 ###> doctrine/doctrine-bundle ###
+  db:
+    image: mysql
+    container_name: db_fit_arena
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    networks:
+      - dev
+
   database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
     environment:

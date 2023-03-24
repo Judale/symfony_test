@@ -1,6 +1,77 @@
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
+        driver: 'pdo_mysql'
+        charset: utf8mb4
+
+        types:
+            sport_type_enum: App\Doctrine\SportTypeEnumType
+            creneau_statut_enum: App\Doctrine\CreneauStatutEnumType
+
+  #           Type_Porteur_Enum : App\Doctrine\TypePorteurEnumType
+   #         Type_Donnee_Enum : App\Doctrine\TypeDonneeEnumType
+    #        type_Contact_Enum : App\Doctrine\typeContactEnumType
+     #       Statut_Creneau_Enum : App\Doctrine\StatutCreneauEnumType
+      #      Jour_Semaine_Enum : App\Doctrine\JourSemaineEnumType
+       #     Jour_Mensuel_Enum : App\Doctrine\JourMensuelEnumType
+        #    Type_Equipe_Enum : App\Doctrine\TypeEquipeEnumType
+         #   Statut_Fit_Arena_Enum : App\Doctrine\StatutFitArenaEnumType
+          #  Type_Fit_Arena_Log_Enum : App\Doctrine\TypeFitArenaLogEnumType
+           # Type_Feuille_Match_Enum:  App\Doctrine\TypeFeuilleMatchEnumType
+#            Statut_Invit_Equipier_Enum : App\Doctrine\StatutInvitEquipierEnumType
+ #           Type_Invite_Equipier_Enum : App\Doctrine\TypeInviteEquipierEnumType
+  #          Type_Organisme_Enume : App\Doctrine\TypeOrganismeEnumType
+   #         Statut_Paiement_Enum : App\Doctrine\StatutPaiementEnumType
+    #        Statut_Panier_CommandeEnum : App\Doctrine\StatutPanierCommandeEnumType
+     #       Statut_Partie_Enum : App\Doctrine\StatutPartieEnumType
+      #      Statut_Partie_Periode_Enum : App\Doctrine\StatutPartiePeriodeEnumType
+       #     Reservation_Statut_Enum : App\Doctrine\ReservationStatutEnumType
+        #    Type_Reservation_Enum : App\Doctrine\TypeReservationEnumType
+         #   Statut_Paiement_Reservation_Complement_Enum : App\Doctrine\StatutPaiementReservationComplementEnumType
+          #  Etat_Temps_Fort_Enum: App\Doctrine\EtatTempsFortEnumType
+#            Enovon_Statut_Enum : App\Doctrine\EnovonStatutEnumType
+ #           Type_Terminal_Enum : App\Doctrine\TypeTerminalEnumType
+  #          Type_Affectation_Enum : App\Doctrine\TypeAffectationEnumType
+   #         Type_Donne_Enum : App\Doctrine\TypeDonneEnumType
+    #        Type_Mail_Envoie_Destinataire_Enum : App\Doctrine\TypeMailEnvoieDestinataireEnumType
+     #       Droit_Enum : App\Doctrine\DroitEnumType
+      #      Type_Utilisateur_Enum : App\Doctrine\TypeUtilisateurEnumType
+       #     Etat_Utilisateur_Fingerprint_Enum : App\Doctrine\EtatUtilisateurFingerprintEnumType
+
+
+        mapping_types:
+            sport_type_enum: string
+            creneau_statut_enum: string
+
+#            Type_Porteur_Enum: string
+ #           Type_Donnee_Enum: string
+  #          type_Contact_Enum: string
+   #         Statut_Creneau_Enum: string
+    #        Jour_Semaine_Enum: string
+     #       Jour_Mensuel_Enum: string
+      #      Type_Equipe_Enum: string
+       #     Statut_Fit_Arena_Enum: string
+        #    Type_Fit_Arena_Log_Enum: string
+         #   Type_Feuille_Match_Enum: string
+          #  Statut_Invit_Equipier_Enum: string
+           # Type_Invite_Equipier_Enum: string
+#            Type_Organisme_Enume: string
+ #           Statut_Paiement_Enum: string
+  #          Statut_Panier_CommandeEnum: string
+   #         Statut_Partie_Enum: string
+    #        Statut_Partie_Periode_Enum: string
+     #       Reservation_Statut_Enum: string
+      #      Type_Reservation_Enum: string
+       #     Statut_Paiement_Reservation_Complement_Enum: string
+        #    Etat_Temps_Fort_Enum: string
+         #   Enovon_Statut_Enum: string
+          #  Type_Terminal_Enum: string
+           # Type_Affectation_Enum: string
+#            Type_Donne_Enum: string
+ #           Type_Mail_Envoie_Destinataire_Enum: string
+  #          Droit_Enum: string
+   #         Type_Utilisateur_Enum: string
+    #        Etat_Utilisateur_Fingerprint_Enum: string
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)

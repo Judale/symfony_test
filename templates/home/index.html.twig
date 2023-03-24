@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div id="app" data-v-app="">
+        <div class="flex overflow-hidden bg-gray-50 dark:bg-gray-900">
+            <aside id="logo-sidebar" class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full font-normal duration-75 lg:flex transition-width min-w-1/4" aria-label="Sidebar">
+                <div class="bg-red-600 h-14 flex items-center">
+                    <a href="/home" class="ml-2" test="Thome">
+                        <img src="logo-d879f6b0.png" class="h-5 ml-10" alt="logo">
+                    </a>
+                </div>
+                <div class="h-full overflow-y-auto bg-white">
+                    <div class="flex flex-col items-center text-base font-normal text-gray-900">
+                        <div class="flex items-center ml-10 px-1 py-2 w-full text-xl -ml-6 text-red-600"><!---->
+                            <a aria-current="page" href="/fitarena/1/activities_by_zone" class="router-link-active router-link-exact-active flex items-center w-full justify-between" id="T"><!---->
+                                <span class="flex-1 ml-3 whitespace-nowrap">Administrateur</span><!---->
+                            </a></div><!---->
+                    </div>
+                    <div class="flex flex-col items-center text-base font-normal text-gray-900">
+                        <div class="flex items-center ml-10 px-1 py-2 w-full hover:bg-gray-100 text-sm"><!---->
+                            <a href="/fitarena/1/clients" class="flex items-center w-full justify-between" id="Tclients">
+                                <div class="text-red-600">
+                                    <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.8625 15.0189H5.0125V9.50644H10V15.0189H13.15V6.55332L7.50625 2.33145L1.8625 6.55332V15.0189ZM0.375 16.5064V5.80957L7.50625 0.450195L14.6375 5.80957V16.5064H8.57812V10.9283H6.43437V16.5064H0.375Z" fill="#DE001A"></path>
+                                    </svg>
+                                </div>
+                                <span class="flex-1 ml-3 whitespace-nowrap">FitArena</span><!---->
+                            </a>
+                        </div><!---->
+                    </div>
+                    <div class="flex flex-col items-center text-base font-normal text-gray-900">
+                        <div class="w-full flex flex-col bg-gray-100">
+                            <div class="flex w-full pl-3 pr-3">
+                                <svg class="cursor-pointer h-8 w-8 stroke-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <a href="/home/doing" class="router-link-active flex items-center w-full justify-between"><!---->
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Doing</span><!---->
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col bg-gray-100">
+                            <div class="flex w-full pl-3 pr-3">
+                                <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <a href="/home/proto" class="flex items-center w-full justify-between"><!---->
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Proto</span><!---->
+                                </a>
+                            </div><!---->
+                        </div>
+                        <div class="w-full flex flex-col bg-gray-100">
+                            <div class="flex w-full pl-3 pr-3">
+                                <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                                <a href="/home/dijon" class="flex items-center w-full justify-between"><!---->
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Dijon</span><!---->
+                                </a>
+                            </div><!----></div>
+                        <div class="w-full flex flex-col bg-gray-100">
+                            <div class="flex w-full pl-3 pr-3">
+                                <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <a href="/home/demo" class="flex items-center w-full justify-between"><!---->
+                                    <span class="flex-1 ml-3 whitespace-nowrap">TEST DEMO</span><!---->
+                                </a>
+                            </div><!---->
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="w-full h-full bg-gray-50 lg:ml-64 dark:bg-gray-900">
+                <div>
+                    <nav class="fixed w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                        <div class="h-14 flex items-center">
+                            <div class="flex justify-between w-10/12 px-4">
+                                <nav class="flex">
+                                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                                        <li class="inline-flex items-center">
+                                            <a href="/home" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                                                <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                                                </svg> Accueil </a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                                <button class="focus:ring-blue-300 bg-white border inline-flex items-center space-x-1 justify-center px-3 py-2 text-sm font-medium text-center rounded-lg text-red-600 hover:bg-red-100" type="button" data-modal-toggle="add-user-modal" test="Tlogout">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="transform -rotate-90">
+                                            <path fill="currentColor" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2a9.985 9.985 0 0 1 8 4h-2.71a8 8 0 1 0 .001 12h2.71A9.985 9.985 0 0 1 12 22zm7-6v-3h-8v-2h8V8l5 4l-5 4z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>Deconnexion</div>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="w-full pt-20 px-4 bg-gray-100 h-screen">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
