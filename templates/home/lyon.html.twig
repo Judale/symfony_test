@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Fit - Arena Proto{% endblock %}
 
 {% block body %}
     <div id="app" data-v-app="">
@@ -46,7 +46,7 @@
                                 <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <a href="/home/proto" class="flex items-center w-full justify-between"><!---->
+                                <a href="/home/proto/month" class="flex items-center w-full justify-between"><!---->
                                     <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Proto</span><!---->
                                 </a>
                             </div><!---->
@@ -55,8 +55,8 @@
                             <div class="flex w-full pl-3 pr-3">
                                 <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                <a href="/home/dijon" class="flex items-center w-full justify-between"><!---->
-                                    <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Dijon</span><!---->
+                                <a href="/home/lyon" class="flex items-center w-full justify-between"><!---->
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Lyon</span><!---->
                                 </a>
                             </div><!----></div>
                         <div class="w-full flex flex-col bg-gray-100">
@@ -98,7 +98,7 @@
                                                 <svg aria-hidden="true" class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                                 </svg>
-                                                <a href="/home/dijon" class="hover:text-blue-600 ml-1 text-sm font-medium text-red-600 md:ml-2">Fit Arena - Dijon</a>
+                                                <a href="/home/lyon/month" class="hover:text-blue-600 ml-1 text-sm font-medium text-red-600 md:ml-2">Fit Arena - Lyon</a>
                                             </div>
                                         </li>
                                     </ol>
@@ -122,19 +122,19 @@
 
 
                         <div class="container mx-auto p-4">
-                            <h1 class="text-2xl font-bold mb-4">Tableau de bord</h1>
-                            <div class="flex items-center mb-4">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded mr-2">Semaine</button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded mr-2">Mois</button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded mr-2">Année</button>
+                            <h1 class="text-3xl font-bold mb-6">{{ fit_arena_name }} : par {{ type }} </h1>
+
+                            <div class="mb-4">
+                                <a href="{{ path('fit_proto_week') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Semaine</a>
+                                <a href="{{ path('fit_proto_month') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Mois</a>
+                                <a href="{{ path('fit_proto_year') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Année</a>
                             </div>
                             <div class="flex flex-wrap -mx-4 mb-4">
 
                                 <div class="w-full md:w-1/2 px-4 flex">
 
                                     <div class="overflow-hidden w-1/2">
-                                        <div
-                                                class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
+                                        <div class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
                                             CHIFFRE D'AFFAIRE
                                         </div>
                                         <canvas class="p-10" id="chartBar1"></canvas>
@@ -145,35 +145,38 @@
 
                                     <!-- Chart bar -->
                                     <script>
-                                        const labelsBarChart1 = [
-                                            "Chiffre",
+                                        {% set monthNames = {
+                                            1: 'Janvier',
+                                            2: 'Février',
+                                            3: 'Mars',
+                                            4: 'Avril',
+                                            5: 'Mai',
+                                            6: 'Juin',
+                                            7: 'Juillet',
+                                            8: 'Août',
+                                            9: 'Septembre',
+                                            10: 'Octobre',
+                                            11: 'Novembre',
+                                            12: 'Décembre',
+                                        } %}
 
+                                        const labelsBarChart1 = [
+                                            {% for item in data %}
+                                            "{{ type == 'week' ? item.semaine : (type == 'month' ? monthNames[item.mois] : item.annee) }}",
+                                            {% endfor %}
                                         ];
                                         const dataBarChart1 = {
-                                            labels: ["Jan.",
-                                                "Fév.",
-                                                "Mars",
-                                                "Av.",
-                                                "Mai",
-                                                "Juin",
-                                                "Juil.",
-                                                "Août",
-                                                "Sept.",
-                                                "Oct.",
-                                                "Nov",
-                                                "Déc.",],
+                                            labels: labelsBarChart1,
                                             datasets: [
-                                                {
-                                                    label: "CA Prévisionnel",
-                                                    backgroundColor: "hsl(220, 13%, 91%)",
-                                                    borderColor: "hsl(220, 13%, 91%)",
-                                                    data: [18000,22000,16000,25000,23000,19000,23500,18000,20000,24000,22000, 28000],
-                                                },
                                                 {
                                                     label: "CA réalisé",
                                                     backgroundColor: "hsl(0, 75%, 51%)",
                                                     borderColor: "hsl(0, 75%, 51%)",
-                                                    data: [23000,26000,22000,28000,22000,20000,24000],
+                                                    data: [
+                                                        {% for item in data %}
+                                                        {{ item.chiffre_affaire }},
+                                                        {% endfor %}
+                                                    ],
                                                 },
                                             ],
                                         };
@@ -197,6 +200,7 @@
                                             CA CUMULE - A DATE
                                         </div>
                                         <canvas class="p-10" id="chartBar"></canvas>
+
                                     </div>
 
                                     <!-- Required chart.js -->
@@ -215,13 +219,13 @@
                                                     label: "CA Prévisionnel",
                                                     backgroundColor: "hsl(220, 13%, 91%)",
                                                     borderColor: "hsl(220, 13%, 91%)",
-                                                    data: [195678],
+                                                    data: [0],
                                                 },
                                                 {
                                                     label: "CA réalisé",
                                                     backgroundColor: "hsl(0, 75%, 51%)",
                                                     borderColor: "hsl(0, 75%, 51%)",
-                                                    data: [245589],
+                                                    data: [{{ chiffre_affaire }}],
                                                 },
                                             ],
                                         };
@@ -239,15 +243,32 @@
                                     </script>
                                 </div>
                             </div>
-                            <div class="flex flex-wrap -mx-4">
+                            <div class="flex flex-wrap">
 
-                                <div class="overflow-hidden w-1/5">
-                                    <div
-                                            class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
-                                        Football
+
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[0].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartFootball"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[0].pourcentage }} %</h2>
+                                        </div>
                                     </div>
-                                    <canvas class="p-10" id="chartFootball"></canvas>
                                 </div>
+
 
                                 <!-- Required chart.js -->
                                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -255,11 +276,11 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataFootball = {
-                                        labels: ["Football", "Autre"],
+                                        labels: ["{{ sport_repartitions[0].sport_libelle }}", "Autre"],
                                         datasets: [
                                             {
                                                 label: "My First Dataset",
-                                                data: [34, 66],
+                                                data: [{{ sport_repartitions[0].reservations }}, {{ total_reservations }} -{{ sport_repartitions[0].reservations }}],
                                                 backgroundColor: [
                                                     "rgb(224, 36, 36)",
                                                     "rgb(226, 231, 235)",
@@ -281,12 +302,27 @@
                                     );
                                 </script>
 
-                                <div class="overflow-hidden  w-1/5">
-                                    <div
-                                            class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
-                                        Handball
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[1].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartHandball"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[1].pourcentage }} %</h2>
+                                        </div>
                                     </div>
-                                    <canvas class="p-10" id="chartHandball"></canvas>
                                 </div>
 
                                 <!-- Required chart.js -->
@@ -295,11 +331,11 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataHandball = {
-                                        labels: ["Handball", "Autre"],
+                                        labels: ["{{ sport_repartitions[1].sport_libelle }}", "Autre"],
                                         datasets: [
                                             {
                                                 label: "My First Dataset",
-                                                data: [7,93],
+                                                data: [{{ sport_repartitions[1].reservations }},{{ total_reservations }} - {{ sport_repartitions[1].reservations }} ],
                                                 backgroundColor: [
                                                     "rgb(224, 36, 36)",
                                                     "rgb(226, 231, 235)",
@@ -321,12 +357,27 @@
                                     );
                                 </script>
 
-                                <div class="overflow-hidden  w-1/5">
-                                    <div
-                                            class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
-                                        Basket 3x3
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[2].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartBasket3x3"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[2].pourcentage }} %</h2>
+                                        </div>
                                     </div>
-                                    <canvas class="p-10" id="chartBasket3x3"></canvas>
                                 </div>
 
                                 <!-- Required chart.js -->
@@ -335,11 +386,11 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataBasket3x3 = {
-                                        labels: ["Basket 3x3", "Autre"],
+                                        labels: ["{{ sport_repartitions[2].sport_libelle }}", "Autre"],
                                         datasets: [
                                             {
                                                 label: "My First Dataset",
-                                                data: [14,86],
+                                                data: [{{ sport_repartitions[2].reservations }},{{ total_reservations }} - {{ sport_repartitions[2].reservations }}],
                                                 backgroundColor: [
                                                     "rgb(224, 36, 36)",
                                                     "rgb(226, 231, 235)",
@@ -360,12 +411,86 @@
                                         configBasket3x3
                                     );
                                 </script>
-                                <div class="overflow-hidden w-1/5">
-                                    <div
-                                            class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
-                                        Basket 5x5
+
+                            </div>
+
+                            <div class="flex flex-wrap">
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[5].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartPadel"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[5].pourcentage }} %</h2>
+                                        </div>
                                     </div>
-                                    <canvas class="p-10" id="chartBasket5x5"></canvas>
+                                </div>
+
+                                <!-- Required chart.js -->
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <!-- Chart doughnut -->
+                                <script>
+                                    const dataPadel = {
+                                        labels: ["{{ sport_repartitions[5].sport_libelle }}", "Autre"],
+                                        datasets: [
+                                            {
+                                                label: "My First Dataset",
+                                                data: [{{ sport_repartitions[5].reservations }},{{ total_reservations }} - {{ sport_repartitions[5].reservations }}],
+                                                backgroundColor: [
+                                                    "rgb(224, 36, 36)",
+                                                    "rgb(226, 231, 235)",
+                                                ],
+                                                hoverOffset: 4,
+                                            },
+                                        ],
+                                    };
+
+                                    const configPadel = {
+                                        type: "doughnut",
+                                        data: dataPadel,
+                                        options: {},
+                                    };
+
+                                    var chartBar = new Chart(
+                                        document.getElementById("chartPadel"),
+                                        configPadel
+                                    );
+                                </script>
+
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[3].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartBasket5x5"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[3].pourcentage }} %</h2>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Required chart.js -->
@@ -374,11 +499,11 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataBasket5x5 = {
-                                        labels: ["Basket 5x5", "Autre"],
+                                        labels: ["{{ sport_repartitions[3].sport_libelle }}", "Autre"],
                                         datasets: [
                                             {
                                                 label: "My First Dataset",
-                                                data: [24,76],
+                                                data: [{{ sport_repartitions[3].reservations }},{{ total_reservations }} - {{ sport_repartitions[3].reservations }}],
                                                 backgroundColor: [
                                                     "rgb(224, 36, 36)",
                                                     "rgb(226, 231, 235)",
@@ -400,12 +525,27 @@
                                     );
                                 </script>
 
-                                <div class="overflow-hidden w-1/5">
-                                    <div
-                                            class="bg-neutral-50 py-3 px-5 dark:bg-neutral-700 dark:text-neutral-200">
-                                        Volley
+                                <div class="container">
+                                    <div class="flex items-center">
+                                        <!-- Titre à gauche centré verticalement -->
+                                        <div class="text-left">
+                                            <span class="text-xl">{{ sport_repartitions[4].sport_libelle }}</span>
+
+                                        </div>
+
+                                        <!-- Graphique au centre -->
+                                        <div class="">
+                                            <div class="h-32 w-64">
+                                                <!-- Insérez votre graphique ici -->
+                                                <canvas class="p-10" id="chartVolley"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pourcentage à droite centré verticalement -->
+                                        <div class="text-right">
+                                            <h2 class="text-2xl">{{ sport_repartitions[4].pourcentage }} %</h2>
+                                        </div>
                                     </div>
-                                    <canvas class="p-10" id="chartVolley"></canvas>
                                 </div>
 
                                 <!-- Required chart.js -->
@@ -414,11 +554,11 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataVolley = {
-                                        labels: ["Volley", "Autre"],
+                                        labels: ["{{ sport_repartitions[4].sport_libelle }}", "Autre"],
                                         datasets: [
                                             {
                                                 label: "My First Dataset",
-                                                data: [10,90],
+                                                data: [{{ sport_repartitions[4].reservations }},{{ total_reservations }} - {{ sport_repartitions[4].reservations }}],
                                                 backgroundColor: [
                                                     "rgb(224, 36, 36)",
                                                     "rgb(226, 231, 235)",
@@ -448,3 +588,6 @@
         </div>
     </div>
 {% endblock %}
+
+
+
