@@ -8,7 +8,7 @@
             <aside id="logo-sidebar" class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full font-normal duration-75 lg:flex transition-width min-w-1/4" aria-label="Sidebar">
                 <div class="bg-red-600 h-14 flex items-center">
                     <a href="/home" class="ml-2" test="Thome">
-                        <img src="logo-d879f6b0.png" class="h-5 ml-10" alt="logo">
+                        <img src="{{ asset('images/logo-d879f6b0.png') }}" class="h-5 ml-10" alt="logo">
                     </a>
                 </div>
                 <div class="h-full overflow-y-auto bg-white">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="flex flex-col items-center text-base font-normal text-gray-900">
                         <div class="flex items-center ml-10 px-1 py-2 w-full hover:bg-gray-100 text-sm"><!---->
-                            <a href="/fitarena/1/clients" class="flex items-center w-full justify-between" id="Tclients">
+                            <a href="/home/fit_arena" class="flex items-center w-full justify-between" id="Tclients">
                                 <div class="text-red-600">
                                     <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.8625 15.0189H5.0125V9.50644H10V15.0189H13.15V6.55332L7.50625 2.33145L1.8625 6.55332V15.0189ZM0.375 16.5064V5.80957L7.50625 0.450195L14.6375 5.80957V16.5064H8.57812V10.9283H6.43437V16.5064H0.375Z" fill="#DE001A"></path>
@@ -33,10 +33,10 @@
                     <div class="flex flex-col items-center text-base font-normal text-gray-900">
                         <div class="w-full flex flex-col bg-gray-100">
                             <div class="flex w-full pl-3 pr-3">
-                                <svg class="cursor-pointer h-8 w-8 stroke-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <svg class="cursor-pointer h-8 w-8 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <a href="/home/doing" class="router-link-active flex items-center w-full justify-between"><!---->
+                                <a href="/home/doing/month" class="router-link-active flex items-center w-full justify-between"><!---->
                                     <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Doing</span><!---->
                                 </a>
                             </div>
@@ -53,9 +53,9 @@
                         </div>
                         <div class="w-full flex flex-col bg-gray-100">
                             <div class="flex w-full pl-3 pr-3">
-                                <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <svg class="cursor-pointer h-8 w-8 stroke-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                <a href="/home/lyon" class="flex items-center w-full justify-between"><!---->
+                                <a href="/home/lyon/month" class="flex items-center w-full justify-between"><!---->
                                     <span class="flex-1 ml-3 whitespace-nowrap">Fit-Arena Lyon</span><!---->
                                 </a>
                             </div><!----></div>
@@ -64,7 +64,7 @@
                                 <svg class="cursor-pointer h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <a href="/home/demo" class="flex items-center w-full justify-between"><!---->
+                                <a href="/home/demo/month" class="flex items-center w-full justify-between"><!---->
                                     <span class="flex-1 ml-3 whitespace-nowrap">TEST DEMO</span><!---->
                                 </a>
                             </div><!---->
@@ -90,7 +90,7 @@
                                                 <svg aria-hidden="true" class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                                 </svg>
-                                                <a href="/home" class="hover:text-blue-600 ml-1 text-sm font-medium text-red-600 md:ml-2">Fit Arena</a>
+                                                <a href="/home/fit_arena" class="hover:text-blue-600 ml-1 text-sm font-medium text-red-600 md:ml-2">Fit Arena</a>
                                             </div>
                                         </li>
                                         <li>
@@ -125,9 +125,9 @@
                             <h1 class="text-3xl font-bold mb-6">{{ fit_arena_name }} : par {{ type }} </h1>
 
                             <div class="mb-4">
-                                <a href="{{ path('fit_proto_week') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Semaine</a>
-                                <a href="{{ path('fit_proto_month') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Mois</a>
-                                <a href="{{ path('fit_proto_year') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Année</a>
+                                <a href="{{ path('fit_lyon_week') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Semaine</a>
+                                <a href="{{ path('fit_lyon_month') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Mois</a>
+                                <a href="{{ path('fit_lyon_year') }}" class="bg-blue-500 text-black px-4 py-2 rounded shadow hover:bg-blue-600">Année</a>
                             </div>
                             <div class="flex flex-wrap -mx-4 mb-4">
 
@@ -168,6 +168,14 @@
                                         const dataBarChart1 = {
                                             labels: labelsBarChart1,
                                             datasets: [
+                                                {
+                                                    label: "CA Prévisionnel",
+                                                    backgroundColor: "hsl(220, 13%, 91%)",
+                                                    borderColor: "hsl(220, 13%, 91%)",
+                                                    data: [{% for item in predi_data %}
+                                                        {{ item.predi_chiffre_affaire }},
+                                                        {% endfor %}],
+                                                },
                                                 {
                                                     label: "CA réalisé",
                                                     backgroundColor: "hsl(0, 75%, 51%)",
@@ -219,7 +227,7 @@
                                                     label: "CA Prévisionnel",
                                                     backgroundColor: "hsl(220, 13%, 91%)",
                                                     borderColor: "hsl(220, 13%, 91%)",
-                                                    data: [0],
+                                                    data: [{{ predi_chiffre_affaire }}],
                                                 },
                                                 {
                                                     label: "CA réalisé",
@@ -357,228 +365,9 @@
                                     );
                                 </script>
 
-                                <div class="container">
-                                    <div class="flex items-center">
-                                        <!-- Titre à gauche centré verticalement -->
-                                        <div class="text-left">
-                                            <span class="text-xl">{{ sport_repartitions[2].sport_libelle }}</span>
 
-                                        </div>
 
-                                        <!-- Graphique au centre -->
-                                        <div class="">
-                                            <div class="h-32 w-64">
-                                                <!-- Insérez votre graphique ici -->
-                                                <canvas class="p-10" id="chartBasket3x3"></canvas>
-                                            </div>
-                                        </div>
 
-                                        <!-- Pourcentage à droite centré verticalement -->
-                                        <div class="text-right">
-                                            <h2 class="text-2xl">{{ sport_repartitions[2].pourcentage }} %</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Required chart.js -->
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <!-- Chart doughnut -->
-                                <script>
-                                    const dataBasket3x3 = {
-                                        labels: ["{{ sport_repartitions[2].sport_libelle }}", "Autre"],
-                                        datasets: [
-                                            {
-                                                label: "My First Dataset",
-                                                data: [{{ sport_repartitions[2].reservations }},{{ total_reservations }} - {{ sport_repartitions[2].reservations }}],
-                                                backgroundColor: [
-                                                    "rgb(224, 36, 36)",
-                                                    "rgb(226, 231, 235)",
-                                                ],
-                                                hoverOffset: 4,
-                                            },
-                                        ],
-                                    };
-
-                                    const configBasket3x3 = {
-                                        type: "doughnut",
-                                        data: dataBasket3x3,
-                                        options: {},
-                                    };
-
-                                    var chartBar = new Chart(
-                                        document.getElementById("chartBasket3x3"),
-                                        configBasket3x3
-                                    );
-                                </script>
-
-                            </div>
-
-                            <div class="flex flex-wrap">
-                                <div class="container">
-                                    <div class="flex items-center">
-                                        <!-- Titre à gauche centré verticalement -->
-                                        <div class="text-left">
-                                            <span class="text-xl">{{ sport_repartitions[5].sport_libelle }}</span>
-
-                                        </div>
-
-                                        <!-- Graphique au centre -->
-                                        <div class="">
-                                            <div class="h-32 w-64">
-                                                <!-- Insérez votre graphique ici -->
-                                                <canvas class="p-10" id="chartPadel"></canvas>
-                                            </div>
-                                        </div>
-
-                                        <!-- Pourcentage à droite centré verticalement -->
-                                        <div class="text-right">
-                                            <h2 class="text-2xl">{{ sport_repartitions[5].pourcentage }} %</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Required chart.js -->
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <!-- Chart doughnut -->
-                                <script>
-                                    const dataPadel = {
-                                        labels: ["{{ sport_repartitions[5].sport_libelle }}", "Autre"],
-                                        datasets: [
-                                            {
-                                                label: "My First Dataset",
-                                                data: [{{ sport_repartitions[5].reservations }},{{ total_reservations }} - {{ sport_repartitions[5].reservations }}],
-                                                backgroundColor: [
-                                                    "rgb(224, 36, 36)",
-                                                    "rgb(226, 231, 235)",
-                                                ],
-                                                hoverOffset: 4,
-                                            },
-                                        ],
-                                    };
-
-                                    const configPadel = {
-                                        type: "doughnut",
-                                        data: dataPadel,
-                                        options: {},
-                                    };
-
-                                    var chartBar = new Chart(
-                                        document.getElementById("chartPadel"),
-                                        configPadel
-                                    );
-                                </script>
-
-                                <div class="container">
-                                    <div class="flex items-center">
-                                        <!-- Titre à gauche centré verticalement -->
-                                        <div class="text-left">
-                                            <span class="text-xl">{{ sport_repartitions[3].sport_libelle }}</span>
-
-                                        </div>
-
-                                        <!-- Graphique au centre -->
-                                        <div class="">
-                                            <div class="h-32 w-64">
-                                                <!-- Insérez votre graphique ici -->
-                                                <canvas class="p-10" id="chartBasket5x5"></canvas>
-                                            </div>
-                                        </div>
-
-                                        <!-- Pourcentage à droite centré verticalement -->
-                                        <div class="text-right">
-                                            <h2 class="text-2xl">{{ sport_repartitions[3].pourcentage }} %</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Required chart.js -->
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <!-- Chart doughnut -->
-                                <script>
-                                    const dataBasket5x5 = {
-                                        labels: ["{{ sport_repartitions[3].sport_libelle }}", "Autre"],
-                                        datasets: [
-                                            {
-                                                label: "My First Dataset",
-                                                data: [{{ sport_repartitions[3].reservations }},{{ total_reservations }} - {{ sport_repartitions[3].reservations }}],
-                                                backgroundColor: [
-                                                    "rgb(224, 36, 36)",
-                                                    "rgb(226, 231, 235)",
-                                                ],
-                                                hoverOffset: 4,
-                                            },
-                                        ],
-                                    };
-
-                                    const configBasket5x5 = {
-                                        type: "doughnut",
-                                        data: dataBasket5x5,
-                                        options: {},
-                                    };
-
-                                    var chartBar = new Chart(
-                                        document.getElementById("chartBasket5x5"),
-                                        configBasket5x5
-                                    );
-                                </script>
-
-                                <div class="container">
-                                    <div class="flex items-center">
-                                        <!-- Titre à gauche centré verticalement -->
-                                        <div class="text-left">
-                                            <span class="text-xl">{{ sport_repartitions[4].sport_libelle }}</span>
-
-                                        </div>
-
-                                        <!-- Graphique au centre -->
-                                        <div class="">
-                                            <div class="h-32 w-64">
-                                                <!-- Insérez votre graphique ici -->
-                                                <canvas class="p-10" id="chartVolley"></canvas>
-                                            </div>
-                                        </div>
-
-                                        <!-- Pourcentage à droite centré verticalement -->
-                                        <div class="text-right">
-                                            <h2 class="text-2xl">{{ sport_repartitions[4].pourcentage }} %</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Required chart.js -->
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <!-- Chart doughnut -->
-                                <script>
-                                    const dataVolley = {
-                                        labels: ["{{ sport_repartitions[4].sport_libelle }}", "Autre"],
-                                        datasets: [
-                                            {
-                                                label: "My First Dataset",
-                                                data: [{{ sport_repartitions[4].reservations }},{{ total_reservations }} - {{ sport_repartitions[4].reservations }}],
-                                                backgroundColor: [
-                                                    "rgb(224, 36, 36)",
-                                                    "rgb(226, 231, 235)",
-                                                ],
-                                                hoverOffset: 4,
-                                            },
-                                        ],
-                                    };
-
-                                    const configVolley = {
-                                        type: "doughnut",
-                                        data: dataVolley,
-                                        options: {},
-                                    };
-
-                                    var chartBar = new Chart(
-                                        document.getElementById("chartVolley"),
-                                        configVolley
-                                    );
-                                </script>
 
                             </div>
                         </div>
